@@ -4,6 +4,7 @@
   "parameters": {
     "NamingConvention": {
       "type": "string",
+      "defaultvalue": "khl",
       "maxLength": 4,      
       "metadata": {
         "description": "VNet1 Name"
