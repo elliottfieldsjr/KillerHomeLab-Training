@@ -9,14 +9,7 @@
       "metadata": {
         "description": "VNet1 Name"
       }
-    },
-    "vnet1ID": {
-      "type": "string",
-      "defaultValue": "10.1",
-      "metadata": {
-        "description": "VNet1 Prefix"
-      }
-    },                
+    },             
     "artifactsLocation": {
       "type": "string",
       "metadata": {
@@ -33,34 +26,30 @@
     }
   },
   "variables": {
+    "vmName": "[concat(parameters('NamingConvention'),'-vm-01')]",
     "vnet1Name": "[concat(parameters('NamingConvention'),'-VNet1')]",
-    "vnet1Prefix": "[concat(parameters('vnet1ID'),'.0.0/16')]",
-    "vnet1subnet1Name": "[concat(parameters('NamingConvention'),'-VNet1-Subnet1')]",    
-    "vnet1subnet1Prefix": "[concat(parameters('vnet1ID'),'.1.0/24')]"
+    "vnet1subnet1Name": "[concat(parameters('NamingConvention'),'-VNet1-Subnet1')]"
   },  
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2019-10-01",
-      "name": "VNet1",
+      "name": "NetworkInterface",
       "properties": {
           "mode": "Incremental",
           "templateLink": {
-              "uri": "[uri(parameters('artifactsLocation'), concat('linkedtemplates/vnet.json', parameters('artifactsLocationSasToken')))]",
+              "uri": "[uri(parameters('artifactsLocation'), concat('linkedtemplates/networkinterface.json', parameters('artifactsLocationSasToken')))]",
               "contentVersion": "1.0.0.0"
           },
           "parameters": {
+              "computerName": {
+                  "value": "[variables('vmName')]"
+              },
               "vnetName": {
                   "value": "[variables('vnet1Name')]"
               },
-              "vnetprefix": {
-                  "value": "[variables('vnet1Prefix')]"
-              },
-              "subnet1Name": {
+              "subnetName": {
                   "value": "[variables('vnet1subnet1Name')]"
-              },
-              "subnet1Prefix": {
-                  "value": "[variables('vnet1subnet1Prefix')]"
               },
               "location": {
                   "value": "[resourceGroup().location]"
