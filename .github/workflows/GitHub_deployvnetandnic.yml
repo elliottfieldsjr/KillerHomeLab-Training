@@ -2,6 +2,7 @@
 env:
   Creds: ${{ secrets.AZURE_MAG1_CREDENTIALS }}
   SubscriptionID1: ${{ secrets.AZURE_MAG_SUB1 }}
+  AzureCloudEnvironment:  'AzureUSGovernment'  
   ResourceGroup1Name:  "KillerHomeLab-01"
   vnetName: 'khl-VNet3'
   vnetPrefix: '10.3.0.0/16'
