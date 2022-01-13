@@ -1,0 +1,37 @@
+variables:
+  vnetName: 'khl-vnet2'
+  vnetprefix: '10.2.0.0/16'
+  subnet1Name: 'khl-vnet2-subnet1'
+  subnet1Prefix: '10.2.1.0/24'
+  location: 'usgovvirginia'
+pool:
+  name: Azure Pipelines
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  displayName: 'Deploy VNet'
+  inputs:
+    azureResourceManagerConnection: 'ELLIOTTF-MAG-SP-SUB1'
+    subscriptionId: '0775e1d2-0381-485c-bc18-0f1bddc3f73b'
+    resourceGroupName: 'KillerHomeLab-01'
+    location: usgovvirginia
+    csmFile: 'Deployments/Deploy-Virtual-Network/linkedtemplates/vnet.json'
+    overrideParameters:
+      -vnetName $(vnetName)
+      -vnetprefix $(vnetPrefix)
+      -subnet1Name $(subnet1Name)
+      -subnet1Prefix $(subnet1Prefix)
+      -location $(location)
+
+- task: AzureResourceManagerTemplateDeployment@3
+  displayName: 'Deploy NIC'
+  inputs:
+    azureResourceManagerConnection: 'ELLIOTTF-MAG-SP-SUB1'
+    subscriptionId: '0775e1d2-0381-485c-bc18-0f1bddc3f73b'
+    resourceGroupName: 'KillerHomeLab-01'
+    location: usgovvirginia
+    csmFile: 'Deployments/Deploy-Network-Interface-Card/linkedtemplates/networkinterface.json'
+    overrideParameters:
+      -computerName khl-vm-01
+      -vnetName $(vnetName)
+      -subnetName $(subnet1Name)
+      -location $(location)

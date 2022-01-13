@@ -1,0 +1,14 @@
+az ad sp create-for-rbac --name GITHUBSP --role contributor --scopes /subscriptions/0775e1d2-0381-485c-bc18-0f1bddc3f73b --sdk-auth
+
+{
+  "clientId": "",
+  "clientSecret": "",
+  "subscriptionId": "",
+  "tenantId": "",
+  "activeDirectoryEndpointUrl": "https://login.microsoftonline.us",
+  "resourceManagerEndpointUrl": "https://management.usgovcloudapi.net/",
+  "activeDirectoryGraphResourceId": "https://graph.windows.net/",
+  "sqlManagementEndpointUrl": "https://management.core.usgovcloudapi.net:8443/",
+  "galleryEndpointUrl": "https://gallery.usgovcloudapi.net/",
+  "managementEndpointUrl": "https://management.core.usgovcloudapi.net/"
+}
