@@ -37,7 +37,7 @@ jobs:
           vnetprefix=${{env.vnetprefix}}
           subnet1Name=${{env.subnet1Name}}
           subnet1Prefix="${{env.subnet1Prefix}}"
-          Location="${{env.Location}}"
+          location="${{env.location}}"
 
     - name: Deploy NIC
       uses: azure/arm-deploy@v1
@@ -49,4 +49,4 @@ jobs:
           computerName='khl-vm-01'
           vnetName=${{env.vnetName}}
           subnetName=${{env.subnet1Name}}
-          Location="${{env.Location}}"          
+          location="${{env.location}}"          
