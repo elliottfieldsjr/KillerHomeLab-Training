@@ -34,7 +34,7 @@ jobs:
         template: "Deployments/Deploy-Virtual-Network/linkedtemplates/vnet.json"
         parameters:
           vnetName=${{env.vnetName}}
-          vnetprefix=${{env.vnetprefix}}
+          vnetprefix=${{env.vnetPrefix}}
           subnet1Name=${{env.subnet1Name}}
           subnet1Prefix="${{env.subnet1Prefix}}"
           location="${{env.location}}"
