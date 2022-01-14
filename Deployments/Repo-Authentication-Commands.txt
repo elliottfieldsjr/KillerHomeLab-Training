@@ -1,0 +1,2 @@
+git config --global user.email "[Enter DevOps Email Address]"
+git config --global user.name "[Enter DevOps Username]"
