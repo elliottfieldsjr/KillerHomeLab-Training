@@ -1,4 +1,4 @@
-az ad sp create-for-rbac --name GITHUBSP --role contributor --scopes /subscriptions/0775e1d2-0381-485c-bc18-0f1bddc3f73b --sdk-auth
+az ad sp create-for-rbac --name [ENTER SP NAME] --role contributor --scopes /subscriptions/[Enter Subscription ID] --sdk-auth
 
 {
   "clientId": "",
