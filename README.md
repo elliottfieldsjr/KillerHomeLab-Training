@@ -10,4 +10,4 @@ In addition to discussing the methods used to deploy Infrastructure as Code it w
 
 - JSON
 - BICEP
-- TERRAFORM
+- TERRAFORM (Coming Soon)
