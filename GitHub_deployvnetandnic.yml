@@ -46,7 +46,7 @@ jobs:
         resourceGroupName: "${{env.ResourceGroup1Name}}"
         template: "Deployments/Deploy-Network-Interface-Card/linkedtemplates/networkinterface.json"
         parameters:
-          computerName='khl-vm-01'
+          computerName="khl-vm-01"
           vnetName=${{env.vnetName}}
           subnetName=${{env.subnet1Name}}
           location="${{env.location}}"          
